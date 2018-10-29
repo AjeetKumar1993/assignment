@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+	<property name="DEV_HOME" value="/home/connector/send_notification/ " />
+  
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
+			<Pattern>%d{HH:mm:ss.SSS} %-5level %logger{80} - %msg%n</Pattern>
+		</encoder>
+	</appender>  
+
+   
+    
+    
+     <appender name="infologs" class="ch.qos.logback.core.rolling.RollingFileAppender">  
+        <file>${DEV_HOME}/logs/info.log</file>  
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">  
+            <fileNamePattern>${DEV_HOME}/logs/info.%d{yyyy-MM-dd}.log</fileNamePattern>  
+            <maxHistory>30</maxHistory>  
+        </rollingPolicy>  
+        <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">  
+            <Pattern>%d{HH:mm:ss.SSS} %-5level %logger{80} - %msg%n</Pattern>
+        </encoder>  
+    </appender>  
+  
+         
+ 
+	
+   <root>
+		<level value="INFO" />
+		<appender-ref ref="stdout" />
+		<appender-ref ref="infologs"/>
+	</root>
+
+</configuration>
